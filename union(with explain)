@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>  // 문자열 복사 함수인 strcpy를 사용하기 위해 헤더 파일을 포함합니다.
+
+// 공용체(Union) 정의
+union MyUnion {
+    int i;            // 정수형 멤버
+    float f;          // 실수형 멤버
+    char str[20];     // 문자열 배열 멤버
+};
+
+int main() {
+    union MyUnion u;  // MyUnion 타입의 변수 u를 선언합니다.
+
+    u.i = 42;         // 정수 멤버에 값을 할당합니다.
+    printf("Integer: %d\n", u.i);  // 정수 값 출력
+
+    u.f = 3.14;       // 실수 멤버에 값을 할당합니다.
+    printf("Float: %f\n", u.f);    // 실수 값 출력
+
+    strcpy(u.str, "Hello, Union!");  // 문자열을 문자열 배열 멤버에 복사합니다.
+    printf("String: %s\n", u.str);  // 문자열 값 출력
+
+    return 0;  // 프로그램 종료
+}
+
+
+ 이 코드는 C 언어에서 공용체를 사용하여 다양한 데이터 타입을 하나의 변수로 다루는 방법을 설명하고, 이러한 다양한 데이터를 할당하고 출력하는 방법을 보여주는 예제입니다
